@@ -5,9 +5,9 @@
 4. To test if its working, it should send "Program Started" message when you run docker-compose up flipkartbot
 5. Make sure you set "Battery Optimization" for pushover app to "Dont Optimize", otherwise you may miss notifcations
     For references of Puhover follow see images below : 
-        - PO_USER https://github.com/animeshroy/automate_cowin_appointment/blob/Develop/Resources/Pushover/Screenshot_2021-01-30_at_4.20.21_PM.png
-        - https://github.com/animeshroy/automate_cowin_appointment/blob/Develop/Resources/Pushover/Screenshot_2021-01-30_at_4.22.01_PM.png
-        - PO_TOKEN https://github.com/animeshroy/automate_cowin_appointment/blob/Develop/Resources/Pushover/Screenshot_2021-01-30_at_4.22.23_PM.png
+    - PO_USER https://github.com/animeshroy/automate_cowin_appointment/blob/Develop/Resources/Pushover/Screenshot_2021-01-30_at_4.20.21_PM.png
+    - https://github.com/animeshroy/automate_cowin_appointment/blob/Develop/Resources/Pushover/Screenshot_2021-01-30_at_4.22.01_PM.png
+    - PO_TOKEN https://github.com/animeshroy/automate_cowin_appointment/blob/Develop/Resources/Pushover/Screenshot_2021-01-30_at_4.22.23_PM.png
 
 6. For Running the script do the following steps:
 7. Provide your mobile number and secret key in login.py
