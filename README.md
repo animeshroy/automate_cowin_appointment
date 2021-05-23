@@ -24,4 +24,4 @@ state_code and district codes can found at ~\Resources\Postman API Collection GE
 | ------ | ------ |
 | API Documentation | [https://documenter.getpostman.com/view/9564387/TzRPip7u][PlDb] |
 | Cowin Public API setu | [https://apisetu.gov.in/public/marketplace/api/cowin/cowin-protected-v2#/][PlGh] |
-| Pusover | [https://pushover.net/][PlGh] |
+| Pushover | [https://pushover.net/][PlGh] |
