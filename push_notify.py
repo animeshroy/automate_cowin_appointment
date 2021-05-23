@@ -1,6 +1,6 @@
 import requests
-PO_TOKEN = "ajnubok1byk3xumzvu74xi8gifnp6r"
-PO_USER  = "u1djcrmm8zhavb4586fwn81x6vr7vx"
+PO_TOKEN = "ajnub*********74xi8gifnp6r"
+PO_USER  = "u1dj************n81x6vr7vx"
 
 def send_push_notify(text):
     if PO_USER == "yourpushoveruser" or PO_USER is None:

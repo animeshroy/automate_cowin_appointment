@@ -2,8 +2,8 @@ import requests,sys
 import json, hashlib
 
 from beneficiary import fetch_beneficiaries
-MOBILE_NUMBER = "8851291302"
-SECRET = "U2FsdGVkX19c2O9OPUj6mWKByx2VtEUJl4tsdCfHD3t4L4r5Nm1qIQRL7y6JhEf3vf6NBZveF00tMfHnP/16Og==" #Check from browser network @https://cdn-api.co-vin.in/api/v2/auth/generateMobileOTP call
+MOBILE_NUMBER = ""
+SECRET = "U2FsdGVkX19c2O9OPU***********t4L4r5Nm1qIQRL7y6JhEf3vf6NBZveF00tMfHnP/16Og==" #Check from browser network @https://cdn-api.co-vin.in/api/v2/auth/generateMobileOTP call
 
 def generate_otp():
     GENERATE_URL = "https://cdn-api.co-vin.in/api/v2/auth/generateMobileOTP"
