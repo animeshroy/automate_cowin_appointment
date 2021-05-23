@@ -13,6 +13,7 @@
 
 7. pip3 install -r requirments.txt
 8. Python3 main.py
+9. POSTMAN API COLLECTION found at https://github.com/animeshroy/automate_cowin_appointment/blob/Develop/Resources/Postman%20API%20Collection/CoWin%20APIs.postman_collection.json
 
 Note: check_vaccine_slots_state(state_code=16, district_id_inp=265, AGE_LIMT=18)
 give input for state_code, district_code, minimum_age_limt
