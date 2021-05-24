@@ -10,6 +10,8 @@ from appointment import schedule_appointment
 from push_notify import send_push_notify
 
 today = time.strftime("%d/%m/%Y")
+TIMEOUT = 30#seconds
+
 def check_vaccine_slots_pincode(PINCODE, AGE_LIMT):
     while True:
         #Start a session
@@ -45,21 +47,21 @@ def fetch_state_district(state_code):
     return response['districts']
 
 def generate_msg_district_wise(slot_df, district_id=None, top=10):
-    if district_id == None:
+    if district_id == None or len(district_id) == 0:
         top_df = slot_df.sort_values(by="available_capacity_dose1")
         district_id = list(top_df.head(1)['district_id'])[0]
     if slot_df.shape[0] == 0:
         return f"{today} No Slots available!!\n\n", None
     else:
         message_string = f"{today} Alert!\n\n"
-    dist_df = slot_df[slot_df['district_id']==district_id]
+    dist_df = slot_df[slot_df['district_id'].isin(district_id)]
     dist_df = dist_df.sort_values(by="available_capacity_dose1")
     dist_df = dist_df.head(top)
     if dist_df.shape[0] == 0:
         return f"{today} No Slots available!!\n\n", None
     else:
         message_string = f"{today} Alert!\n\n"
-        session_ids = dist_df[["session_id","slots_0","slots_1","slots_2","available_capacity_dose1"]]
+        session_ids = dist_df[["session_id", "slots_0", "slots_1", "slots_2", "available_capacity_dose1"]]
         session_ids = session_ids.sort_values(by="available_capacity_dose1")
     for row_index in dist_df.index:
             message_string+=f"\nAvailable - {dist_df.loc[row_index, 'available_capacity_dose1']} in {dist_df.loc[row_index, 'district_name']}>{dist_df.loc[row_index, 'name']} on {dist_df.loc[row_index, 'date']} for the age {dist_df.loc[row_index, 'min_age_limit']}+"
@@ -115,8 +117,9 @@ def check_vaccine_slots_state(state_code, AGE_LIMT, district_id_inp=None):
                 send_push_notify(message_string)
                 send_push_notify("Booking appointment!!!")
                 book_appoinment(session_ids)
-        except:
-            time.sleep(300)
+        except Exception as err:
+            time.sleep(TIMEOUT+30)
+            print("\nFailure to connect cowin")
             continue
         else:
-            time.sleep(60)
+            time.sleep(TIMEOUT)
