@@ -108,6 +108,7 @@ def check_vaccine_slots_state(state_code, AGE_LIMT, district_id_inp=None):
         slot_df.to_csv('slot_data.csv')
         message_string, session_ids = generate_msg_district_wise(slot_df, district_id=district_id_inp)
         send_push_notify(message_string)
-        # if session_ids is not None:
-        #     book_appoinment(session_ids)
-        time.sleep(900)
+        if session_ids is not None:
+            send_push_notify("Booking appointment!!!")
+            book_appoinment(session_ids)
+        time.sleep(60)
