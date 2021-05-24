@@ -1,7 +1,7 @@
 import requests
 import json
 import time
-import datetime
+from datetime import datetime
 import pandas as pd
 from flatten_json import flatten
 from login import confirm_otp
@@ -119,7 +119,7 @@ def check_vaccine_slots_state(state_code, AGE_LIMT, district_id_inp=None):
                 book_appoinment(session_ids)
         except Exception as err:
             time.sleep(TIMEOUT+30)
-            print("\nFailure to connect cowin")
+            print(f"\nFailure to connect cowin at {datetime.now().time()}")
             continue
         else:
             time.sleep(TIMEOUT)
