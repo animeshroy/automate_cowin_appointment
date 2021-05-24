@@ -1,9 +1,9 @@
 import json, requests
 from recaptcha import  fetch_captcha
 
-def schedule_appointment(session_data, bearer_token, beneficiaries_id, slot_preference = 1):
+def schedule_appointment(session_data, bearer_token, beneficiaries_id, slot_preference = 0):
     dose = 1
-    if slot_preference == 1:
+    if slot_preference == 0:
         slot_list = ["09:00AM-12:00PM"]
     else:
         slot_list = session_data['slots']
@@ -20,7 +20,7 @@ def schedule_appointment(session_data, bearer_token, beneficiaries_id, slot_pref
                 print(f"\nCongratulations your appointment is booked with appointment_confirmation_no{response['appointment_confirmation_no']}")
                 return response, 1
             else:
-                print((f"\nCould not book slot for appointment....:( {response}"))
+                print((f"\nCould not book slot for appointment....:( {response.text}"))
                 slot_not_found = True
                 continue
     if slot_not_found:
