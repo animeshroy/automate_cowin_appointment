@@ -79,10 +79,12 @@ def book_appoinment(session_ids):
     return
 
 def check_vaccine_slots_state(state_code, AGE_LIMT, district_id_inp=None):
-    if district_id_inp is None:
+    if district_id_inp is None or len(district_id_inp)  == 0:
         districts_data = fetch_state_district(state_code)
     else:
-        districts_data = [{'district_id':district_id_inp, 'district_name':district_id_inp}]
+        districts_data =[]
+        for dist in district_id_inp:
+            districts_data.append({'district_id':dist, 'district_name':dist})
     send_push_notify("Program Started")
     while True:
         try:#Start a session
