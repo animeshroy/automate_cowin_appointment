@@ -10,6 +10,8 @@ from appointment import schedule_appointment
 from push_notify import send_push_notify
 
 today = time.strftime("%d/%m/%Y")
+TIMEOUT = 30#seconds
+
 def check_vaccine_slots_pincode(PINCODE, AGE_LIMT):
     while True:
         #Start a session
@@ -116,7 +118,8 @@ def check_vaccine_slots_state(state_code, AGE_LIMT, district_id_inp=None):
                 send_push_notify("Booking appointment!!!")
                 book_appoinment(session_ids)
         except:
-            time.sleep(300)
+            time.sleep(TIMEOUT+30)
+            print("\nFailure to connect cowin")
             continue
         else:
-            time.sleep(60)
+            time.sleep(TIMEOUT)
